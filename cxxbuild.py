@@ -7,8 +7,7 @@ from subprocess import call
 print()
 
 ROOTDIR = ".."
-CXX = "cl"
-CC = "cl"
+COMPILER = "cl"
 LINKER = "link"
 INCLUDES = "-I../src/include -I../dep/glfw/include -I../dep/glew/include"
 CXXFLAGS = "-c -std:c++14 -EHsc -MD -W4"
@@ -67,15 +66,10 @@ def needs_recompile(srcpath, objpath, deppath):
 
 def compile_src(srcpath, objpath):
     """ compile the source file """
-    if srcpath.lower().endswith(".cpp"):
-        COMPILE = CXX
-    else:
-        COMPILE = CC
-
-    cmdstr = COMPILE +" "+ CXXFLAGS +" "+ OUT+objpath +" "+ INCLUDES +" "+ srcpath
-    print('\n',cmdstr,'\n')
-    cmd = cmdstr.split(' ')
-    call(cmd)
+    ccstr = COMPILER +" "+ CXXFLAGS +" "+ OUT+objpath +" "+ INCLUDES +" "+ srcpath
+    print('\n', ccstr, '\n')
+    cccmd = ccstr.split(' ')
+    call(cccmd)
 
 
 objfilelist = []
@@ -100,6 +94,6 @@ for obj in objfilelist:
     objstr += obj + " "
 
 linkstr = LINKER +" "+ BIN +" "+ objstr +" "+ LIBS +" "+ LDFLAGS
-print('\n',linkstr,'\n')
+print('\n', linkstr, '\n')
 linkcmd = linkstr.split()
 call(linkcmd)
