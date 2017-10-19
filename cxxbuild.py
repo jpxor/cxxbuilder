@@ -48,7 +48,7 @@ if len(sys.argv) != 3:
     print("Requires build config files as input")
     print()
     print("Example usage:")
-    print("python cxxbuilder.py project.config platform.config")
+    print("python cxxbuild.py project.config platform.config")
     exit(-1)
 
 PROJECT_FILE = sys.argv[1]
@@ -58,14 +58,14 @@ if not os.path.isfile(PROJECT_FILE):
     print("ERROR not a file:", PROJECT_FILE)
     print()
     print("Example usage:")
-    print("python cxxbuilder.py project.config platform.config")
+    print("python cxxbuild.py project.config platform.config")
     exit(-2)
 
 if not os.path.isfile(PLATFORM_FILE):
     print("ERROR not a file:", PLATFORM_FILE)
     print()
     print("Example usage:")
-    print("python cxxbuilder.py project.config platform.config")
+    print("python cxxbuild.py project.config platform.config")
     exit(-3)
 
 #project config
