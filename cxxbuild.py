@@ -283,7 +283,7 @@ def link_objs(obj_list):
     ldstr = ldstr.replace("{LIBS}", libs_str)
 
     #provide link cmd to users
-    print('\n', LINKER_STR, '\n')
+    print('\n', ldstr, '\n')
 
     linkcmd = list(filter(None, ldstr.split()))
     call(linkcmd)
