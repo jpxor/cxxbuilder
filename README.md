@@ -19,7 +19,7 @@ than its corresponding source file, or that source file's included header files.
 The config files are split up into a platform independent project config file and and platform dependent config file. 
 
 ## Config file format
-The format is simply a variable name followed by a list of of values on separate lines. 
+The format is simply a variable name and colon, followed by a list of of values on separate lines. 
 ```
 NAME0:
 value0
