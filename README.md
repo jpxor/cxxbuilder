@@ -1,15 +1,22 @@
 # cxxbuilder
 ## Simple C++ Incremental Build Tool
 
-This is simply a python script that will search your project directory for source files and 
+The cxxbuilder script will:
+1. Find all source files,
+2. Compile each source file if required, 
+3. Link objects files to create your executable. 
+
+Simple as that. 
+
+In more words, this is a python script that will search your project directory for source files and 
 execute the commands set in the config files. The compiler command is run on each source file 
-(*.c, *.cpp) to create an object file, and then the linker command is run once at the end to
+(*.c, *.cpp) if required, and then the linker command is run once at the end to
 produce the executable. 
 
 The compiler command is only run if there is no object file with 'last modified' date newer 
 than its corresponding source file, or that source file's included header files. 
 
-The config files are split up into a platform independant project config file and and platform dependant config file. 
+The config files are split up into a platform independent project config file and and platform dependent config file. 
 
 ## Config file format
 The format is simply a variable name followed by a list of of values on separate lines. 
