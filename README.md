@@ -102,3 +102,6 @@ The variables used in the compiler and linker commands are:
 - OBJ_PATH: same as SRC_PATH, except the extension is changed to ".o",
 - OBJ_FILES: list of all object files found under the root directory after the compile pass,
 - others: all others are specified in the config files. 
+
+## Why? 
+I built this because I couldn't get make to rebuild object files when a header file changed. I also wanted a better understanding and more control over the build process for my projects. I like building from the command line, and so this was the next logical step.
