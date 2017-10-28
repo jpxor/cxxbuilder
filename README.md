@@ -22,7 +22,7 @@ The config files are split up into a platform independent project config file an
 To use cxxbuilder in your C/C++ projects, download or checkout cxxbuilder into a subfolder of your project. Update the project.config and plaform/*.config files as required. Execute cxxbuild.py with the config files as parameters. Example: 
 ```
 # cd cxxbuilder
-# python cxxbuild.py project.config /platforms/msvc.config
+# python cxxbuild.py project.config platforms/msvc.config
 ```
 
 ## Config file format
