@@ -18,6 +18,13 @@ than its corresponding source file, or that source file's included header files.
 
 The config files are split up into a platform independent project config file and and platform dependent config file. 
 
+## Getting Started
+To use cxxbuilder in your C/C++ projects, download or checkout cxxbuilder into a subfolder of your project. Update the project.config and plaform/*.config files as required. Execute cxxbuild.py with the config files as parameters. Example: 
+```
+# cd cxxbuilder
+# python cxxbuild.py project.config /platforms/msvc.config
+```
+
 ## Config file format
 The format is simply a variable name and colon, followed by a list of of values on separate lines. 
 ```
@@ -29,8 +36,8 @@ NAME2:
 value3
 ```
 ## Project config
-Project config specifies project root directory, binary name and path, include files, targets, 
-and project specific libraries for each target
+Project config specifies the project root directory, binary name and path, include files, targets, 
+and project specific libraries for each target.
 
 In this sample project config, all directories are specified relative to the project build directory, which is 
 in the project root. This project targets windows and linux 64bit platforms. 
@@ -65,8 +72,7 @@ GL
 ```
 
 ## Platform config
-The platform specific config shouldn't have to change between projects.
-The config you use will be based on which tools you have availlable on your platform.
+The platform specific config is used to configure the build for specific platforms and tools. For example, MSVC or MinGW for Windows, and GCC for Linux. 
 
 This config provides the compile and link commands along with any prefixes required for correct syntax
 of those tools. There is also a section for libraries required for a platform. 
