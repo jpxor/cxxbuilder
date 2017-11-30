@@ -198,12 +198,13 @@ COMPILER_STR = COMPILER_STR.replace("{CXXFLAGS}", CXXFLAGS)
 Util functions for finding included header files
 """
 
-def find_path(file_name):
+def find_path(file_name, include_dirs):
     """ find and return the pathname to filename """
-    for (cpath, _, fnames) in os.walk(ROOT_DIR):
-        if file_name in fnames:
-            return os.path.join(cpath, file_name)
-    return file_name
+    for include_dir in include_dirs:
+        file_path = os.path.join(include_dir, file_name)
+        if os.path.isfile(file_path):
+            return os.path.abspath(file_path)
+    return None
 
 
 def get_headers(src_path):
@@ -215,8 +216,11 @@ def get_headers(src_path):
             line = line.strip()
             if line.startswith("#include"):
                 headername = line[10:-1].strip()
-                headerpath = find_path(headername)
-                headerlist.append(headerpath)
+                headerpath = find_path(headername, INCLUDE_DIRS)
+                if headerpath is not None:
+                    headerlist.append(headerpath)
+                    #recurse to check all included files
+                    headerlist.extend(get_headers(headerpath))
     return headerlist
 
 """
