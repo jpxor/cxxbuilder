@@ -1,4 +1,4 @@
-## Depreciated - refer to Mantle for better builder
+## Deprecated - refer to Mantle for better builder
 https://github.com/jpxor/Mantle
 
 
