@@ -1,3 +1,7 @@
+## Depreciated - refer to Mantle for better builder
+https://github.com/jpxor/Mantle
+
+
 # cxxbuilder
 ## Simple C++ Incremental Build Tool
 
